@@ -1,56 +1,62 @@
 <script>
-    let { title, subtitle } = $props();
+  let { title, subtitle } = $props();
 </script>
 
 <div class="title-card">
-    <div class="content">
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-    </div>
+  <div class="content">
+    <h1 class="title-text">{title}</h1>
+    <p>{subtitle}</p>
+  </div>
 </div>
 
 <style>
-    .title-card {
-        background-color: #007052;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-        box-sizing: border-box;
-        font-family: "Inter", sans-serif;
-    }
+  .title-card {
+    background-color: #4a4e69;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
 
-    .content {
-        max-width: 700px;
-        background-color: #034c36;
-        padding: 2rem;
-        border: 6px solid #e3ff00;
-        border-radius: 2rem;
-        box-shadow: 16px 16px #188f70;
-    }
+  .title-text {
+    font-family: "Cinzel";
+  }
 
+  .content {
+    max-width: 800px;
+    background-color: #c9ada7;
+    padding: 3rem;
+    border: 4px solid #f2e9e4;
+    border-radius: 1.5rem;
+    box-shadow: 16px 16px 12px #22223b;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+    color: #22223b;
+    text-shadow: 1px 1px 0 #22223b;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #22223b;
+    margin-top: 1rem;
+    font-family: "Times New Roman";
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
     h1 {
-        font-size: 3rem;
-        margin: 0;
-        color: #e3ff00;
-        text-shadow: 1px 1px 0 #007052;
+      font-size: 2.2rem;
     }
 
     p {
-        font-size: 1.3rem;
-        color: #f7f5eb;
-        margin-top: 1rem;
+      font-size: 1.1rem;
     }
-
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 2.2rem;
-        }
-
-        p {
-            font-size: 1.1rem;
-        }
-    }
+  }
 </style>
