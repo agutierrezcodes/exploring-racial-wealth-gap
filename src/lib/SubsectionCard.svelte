@@ -1,38 +1,36 @@
 <script>
-  let { title, subtitle, scroll, scrollImg, scrollImgAlt } = $props();
+  let { subheader, subtitle } = $props();
 </script>
 
-<div class="title-card">
+<div class="subheader-card">
   <div class="content">
-    <h1 class="title-text">{title}</h1>
+    <h1 class="subheader-text">{subheader}</h1>
     <p>{subtitle}</p>
-  </div>
-  <br />
-  <div>
-    <h4 class="scroll-text">{scroll}</h4>
-
-    <img src={scrollImg} alt={scrollImgAlt} />
   </div>
 </div>
 
 <style>
-  .title-card {
+  .subheader-card {
     background-color: #4a4e69;
     height: 100vh;
-    display: block;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
   }
 
-  .title-text {
+  .subheader-text {
     font-family: "Cinzel";
   }
 
   .content {
-    max-width: 100%;
+    max-width: 800px;
     background-color: #c9ada7;
-    padding: 4rem;
+    padding: 3rem;
+    border: 4px solid #f2e9e4;
+    border-radius: 1.5rem;
     box-shadow: 16px 16px 12px #22223b;
   }
 
@@ -50,28 +48,6 @@
     font-family: "Times New Roman";
     font-style: italic;
     font-weight: bold;
-  }
-
-  h4 {
-    color: #f2e9e4;
-    opacity: 40%;
-    text-align: center;
-    font-size: 24px;
-    font-family: "SpaceMono";
-    font-style: italic;
-  }
-
-  img {
-    /* make sure img is centered and responsive*/
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    height: 50px;
-    max-width: 8%;
-    opacity: 15%;
-
-    padding-bottom: 50px;
   }
 
   @media (max-width: 600px) {

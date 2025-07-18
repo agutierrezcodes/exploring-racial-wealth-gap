@@ -21,7 +21,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 30px;
+    /* padding: 30px;
+    padding-top: 200px;
+    margin-top: 100px; */
+    padding: min(100vh, 30rem) 1rem;
   }
 
   .left .scrolly {

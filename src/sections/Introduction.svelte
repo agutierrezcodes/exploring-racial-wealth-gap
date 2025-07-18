@@ -12,7 +12,7 @@
   let box4 = $state(false);
 
   const options = {
-    threshold: [0.88, 0.93],
+    threshold: [0.85, 0.95],
   };
 
   const removeStartTextCallback = (entries, observer) => {
@@ -104,7 +104,7 @@
         <ArticleText>
           <p>
             Generational wealth is simply wealth that is passed down through
-            families.
+            families, from one generation to the next.
           </p>
         </ArticleText>
         <!-- </div>
@@ -115,7 +115,7 @@
         {#if box2}
           <div transition:fade={{ delay: 50, duration: 1000 }}> -->
         <ArticleText>
-          <p>Wealth can come in many forms</p>
+          <p>Wealth can come in many forms.</p>
         </ArticleText>
         <!-- </div>
         {/if}
@@ -128,7 +128,7 @@
           <p>
             This can include cash savings, assets, real estate, connections, and
             even knowledge. This allows the wealthy to give their descendants
-            better opportunities in life (essentially a "step up").
+            better opportunities in life (essentially, a "step up").
           </p>
         </ArticleText>
         <!-- </div>
@@ -141,8 +141,9 @@
         <ArticleText>
           <p>
             Now that we understand the overall concept of generational wealth,
-            let's take a look at the generational wealth <strong>gap</strong> in
-            the US and examine its impact.
+            let us take a look at the wealth <strong>gap</strong> in the US, consider
+            how generational wealth may be a factor, and examine the impact of this
+            gap.
           </p>
         </ArticleText>
         <!-- </div>

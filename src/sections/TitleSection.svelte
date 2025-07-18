@@ -4,31 +4,15 @@
   const title = "IS IT TIME TO BRIDGE THE GENERATIONAL WEALTH GAP?";
   const subtitle =
     "An exploration of the effects of the generational wealth gap in America";
+  const scroll = "Scroll to learn more";
+  const scrollImg = "down-arrow.png";
+  const scrollImgAlt = "Arrow pointing down";
 </script>
 
 <main>
-  <TitleCard {title} {subtitle} />
-  <h4>Scroll to learn more</h4>
-  <img src="" alt="Arrow image pointing down" />
+  <TitleCard {title} {subtitle} {scroll} {scrollImg} {scrollImgAlt} />
 </main>
 
 <style>
-  h4 {
-    color: #f2e9e4;
-    opacity: 80%;
-    text-align: center;
-    font-size: 28px;
-    padding-bottom: 50px;
-    font-family: "SpaceMono";
-    font-style: italic;
-  }
-  img {
-    /* make sure img is centered and responsive*/
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    height: auto;
-    max-width: 100%;
-  }
+
 </style>

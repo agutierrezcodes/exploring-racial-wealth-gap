@@ -9,13 +9,19 @@
   import IntersectionObserverSectionCard from "./sections/IntersectionObserverSectionCard.svelte";
   import IntersectionObserverListExample from "./sections/IntersectionObserverListExample.svelte";
   import Introduction from "./sections/Introduction.svelte";
+  import GenerationalWealthGap from "./sections/GenerationalWealthGap.svelte";
+  import GapEducation from "./sections/GapEducation.svelte";
+  import GapHomeownership from "./sections/GapHomeownership.svelte";
 </script>
 
 <main>
   <TitleSection />
   <Introduction />
-  
-  <RightAlignedExample />
+  <GenerationalWealthGap />
+  <GapEducation />
+  <GapHomeownership />
+
+  <!-- <RightAlignedExample />
   <LeftAlignedExample />
   <ImageExample />
 
@@ -23,5 +29,5 @@
   <InteresectionObserverBasicExample />
   <IntersectionObserverAlertExample />
   <DisappearingDuckExample />
-  <IntersectionObserverListExample />
+  <IntersectionObserverListExample /> -->
 </main>
