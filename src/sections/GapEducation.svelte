@@ -18,20 +18,17 @@
 <main>
   <SubsectionCard {subheader} {subtitle} />
 
-  <div class="genWealthSection">
+  <div class="gapEdSection">
     <Scroller layout="right">
       {#snippet sticky()}
-        <div>
-          <a
-            href="https://www.urban.org/sites/default/files/publication/103267/closing-the-gaps-building-black-wealth-through-homeownership_1.pdf"
-            target="_blank"
-            ><img
-              class="wealthImage"
-              src="MedFamilyWealth.png"
-              alt="Graph that shows Median Family Wealth, by Race/Ethnicity, 1963-2019"
-            /></a
-          >
-        </div>
+        <ArticleText>
+          <h3>
+            Generational wealth does not just influence finances. There is a
+            documented positive relationship between wealth and high educational
+            achievement (attending college/achieving a bachelor's degree or
+            higher).
+          </h3>
+        </ArticleText>
       {/snippet}
 
       {#snippet scrolly()}
@@ -39,62 +36,112 @@
         <div>
           <ArticleText>
             <h3>
-              While this graph is intended to display the Median Family Wealth,
-              by Race or Ethnicity, between 1963 and 2019, if we look closer, we
-              can <em>see</em> the difference in wealth that white Americans
-              consistently appear to have, compared to Black and Hispanic
-              Americans, going back roughly 3 generations (<a
-                href="https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/"
-                >Generation X, Millenials, and Gen Z</a
-              >).
-            </h3>
-          </ArticleText>
-
-          <ArticleText>
-            <h3>
-              The median family wealth of all 3 racial/ethnic groups shown in
-              this graph is generally increasing, lending to the idea that
-              wealth is compounded through generations.
+              The following graph summarizes part of <a
+                href="https://www.urban.org/sites/default/files/publication/89976/wealth_and_education_3.pdf"
+                target="_blank">Braga, et al's</a
+              > research, who found that “Young people from high-wealth families
+              (wealth above roughly $223,500) are more than one and a half times
+              as likely to complete at least two or four years of college by age
+              25 as those in low-wealth families (wealth below $2,000).(1) High-wealth
+              youth have a 70 percent chance of completing at least two years and
+              a 43 percent chance of completing at least four years of college. Similar
+              young people in low-wealth families have only a 41 percent chance of
+              completing at least two years and a 24 percent chance of completing
+              at least four years. ”
             </h3>
           </ArticleText>
 
           <div>
-            <a href="https://blackwealthdata.org/explore/assets" target="_blank"
+            <a
+              href="https://www.urban.org/sites/default/files/publication/89976/wealth_and_education_3.pdf"
+              target="_blank"
               ><img
-                class="giftsImage"
-                src="gifts.png"
-                alt="Graph that shows Percent of 18-28 year olds who received gift or inheritance by Race/Ethnicity"
+                class="wealthCollegeImage"
+                src="wealth-college.png"
+                alt="Graph that shows "
+              /></a
+            >
+          </div>
+
+          <ArticleText>
+            <h3>Let us also look at rates of degree attainment in America.</h3>
+          </ArticleText>
+
+          <div>
+            <a href="" target="_blank"
+              ><img
+                class="degreeRates"
+                src="DegreeAttainment.png"
+                alt="Graph that shows "
               /></a
             >
           </div>
 
           <ArticleText>
             <h3>
-              The graph shown above shows that 2021 data revealed that a higher
-              percent of white 18-28 year olds received gifts or an inheritance
-              compared to their Black and Hispanic peers, potentially due to the
-              generational wealth gap. It may be more feasible for white people
-              from older generations to pass on wealth to their descendants than
-              it is for Black and Hispanic people of the same generations.
+              43.3% of white people earned a bachelor's degree or higher between
+              2011-2023. That is 13.3% more than Black people and 20.8% more
+              than Hispanic people. This difference can again be due to a
+              variety of reasons, but we are focusing on the <em>impact</em> this
+              difference may have on minorities.
             </h3>
           </ArticleText>
 
           <ArticleText>
             <h3>
-              The table below, created by the Black Wealth Data Center (BWDC),
-              breaks down the Percent of Households Holding Asset and Debt Types
-              by Race/Ethnicity between 2007 and 2022. This data may also
-              support the existence of the wealth gap between racial groups,
-              especially when looking at the percent of white households with
-              Directly Held Stocks and Pooled Investment Funds, compared to the
-              percent of Black and Hispanic households who hold those same
-              assets. While the percentages have increased since 2007, the gap
-              remains.
+              A higher level of eduation correlates to a higher income. Let us
+              look at the following two graphs.
+            </h3>
+          </ArticleText>
 
-              <br />
-              <br />
+          <div>
+            <a href="" target="_blank"
+              ><img
+                class="hsIncome"
+                src="high-school-income.png"
+                alt="Graph that shows "
+              /></a
+            >
+          </div>
 
-              Take a look and see what else you might notice.
+          <div>
+            <a href="" target="_blank"
+              ><img
+                class="collegeIncome"
+                src="college-income.png"
+                alt="Graph that shows "
+              /></a
+            >
+          </div>
+
+          <ArticleText>
+            <h3>
+              The first graph shows Median Income among those who have only
+              completed high school while the second graph shows Median Income
+              among those who have a bachelor's degree or higher. There is a
+              marked increase in income among those who completed a bachelor's
+              degree or higher in all races/ethnicities.
+            </h3>
+          </ArticleText>
+
+          <ArticleText>
+            <h3>
+              Education not only correlates to higher income, but it also offers
+              other benefits, such as the opportunity to build important
+              connections with other professionals (also known as "social
+              wealth").
+            </h3>
+          </ArticleText>
+
+          <ArticleText>
+            <h3>
+              The benefits of higher education all translate into more wealth
+              that can be transformed into generational wealth to pass onto
+              children. However, did you notice something that stood out in
+              these data sets? White people in this data had higher advanced
+              education rates and income levels (regardless of education level)
+              than Black and Hispanic people. We may have uncovered an impact of
+              the generational wealth gap.
             </h3>
           </ArticleText>
         </div>
@@ -114,9 +161,10 @@
     font-family: "SpaceMono";
     font-style: italic;
   } */
-  .wealthImage,
-  .giftsImage,
-  .tableauPlaceholder {
+  .wealthCollegeImage,
+  .collegeIncome,
+  .hsIncome,
+  .degreeRates {
     margin: auto;
     width: 90%;
     box-shadow: 12px 12px 12px black;

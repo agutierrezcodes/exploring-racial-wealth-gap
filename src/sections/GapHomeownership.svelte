@@ -7,8 +7,8 @@
   import ObservedArticleText from "../lib/ObservedArticleText.svelte";
   import ArticleText from "../lib/ArticleText.svelte";
 
-  const subheader = "THE GENERATIONAL WEALTH GAP";
-  const subtitle = "How big can it really be?";
+  const subheader = "THE GAP HITS HOME";
+  const subtitle = "How the generational wealth gap impacts homeownership rates";
 
   const options = {
     threshold: [0.88, 0.93],
@@ -72,11 +72,10 @@
             <h3>
               The graph shown above shows that 2021 data revealed that a higher
               percent of white 18-28 year olds received gifts or an inheritance
-              compared to their Black and Hispanic peers, potentially due to
-              the generational wealth gap. It may be more feasible for white
-              people from older generations to pass on wealth to their
-              descendants than it is for Black and Hispanic people of the same
-              generations.
+              compared to their Black and Hispanic peers, potentially due to the
+              generational wealth gap. It may be more feasible for white people
+              from older generations to pass on wealth to their descendants than
+              it is for Black and Hispanic people of the same generations.
             </h3>
           </ArticleText>
 
@@ -102,57 +101,6 @@
         <!-- </ObservedArticleText> -->
       {/snippet}
     </Scroller>
-
-    <div
-      class="tableauPlaceholder"
-      id="viz1752825986571"
-      style="position: relative"
-    >
-      <noscript
-        ><a href="https:&#47;&#47;blackwealthdata.org&#47;explore&#47;assets"
-          ><img
-            alt="ADT08 "
-            src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BW&#47;BWDC-AssetsDebt-PercentofHouseholdsHoldingAssetDebtTypes&#47;ADT08&#47;1_rss.png"
-            style="border: none"
-          /></a
-        ></noscript
-      ><object class="tableauViz" style="display:none;"
-        ><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-        <param name="embed_code_version" value="3" />
-        <param name="site_root" value="" /><param
-          name="name"
-          value="BWDC-AssetsDebt-PercentofHouseholdsHoldingAssetDebtTypes&#47;ADT08"
-        /><param name="tabs" value="no" /><param
-          name="toolbar"
-          value="yes"
-        /><param
-          name="static_image"
-          value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BW&#47;BWDC-AssetsDebt-PercentofHouseholdsHoldingAssetDebtTypes&#47;ADT08&#47;1.png"
-        /> <param name="animate_transition" value="yes" /><param
-          name="display_static_image"
-          value="yes"
-        /><param name="display_spinner" value="yes" /><param
-          name="display_overlay"
-          value="yes"
-        /><param name="display_count" value="yes" /><param
-          name="language"
-          value="en-US"
-        /><param name="origin" value="viz_share_link" /><param
-          name="filter"
-          value="padding=0"
-        /><param name="filter" value="position=relative" /></object
-      >
-    </div>
-    <script type="text/javascript">
-      var divElement = document.getElementById("viz1752825986571");
-      var vizElement = divElement.getElementsByTagName("object")[0];
-      vizElement.style.width = "1244px";
-      vizElement.style.height = "777px";
-      var scriptElement = document.createElement("script");
-      scriptElement.src =
-        "https://public.tableau.com/javascripts/api/viz_v1.js";
-      vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
 
     <Scroller layout="left">
       {#snippet sticky()}
