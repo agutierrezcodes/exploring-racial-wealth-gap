@@ -6,12 +6,41 @@
   import Scroller from "../lib/Scroller.svelte";
   import ObservedArticleText from "../lib/ObservedArticleText.svelte";
   import ArticleText from "../lib/ArticleText.svelte";
+  import { fade } from "svelte/transition";
 
-  const subheader = "THE GENERATIONAL WEALTH GAP";
+  const subheader = "THE RACIAL WEALTH GAP";
   const subtitle = "How big can it really be?";
 
+  let tableIntroIsVisible = $state(true);
+
+  let tableOutroIsVisible = $state(true);
+
+  const setTableIntroVisibility = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.9) {
+        tableIntroIsVisible = true;
+      } else if (entry.intersectionRatio < 0.9) {
+        tableIntroIsVisible = false;
+      }
+    });
+  };
+
+  const setTableOutroVisibility = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.9) {
+        tableOutroIsVisible = true;
+      } else if (entry.intersectionRatio < 0.9) {
+        tableOutroIsVisible = false;
+      }
+    });
+  };
+
   const options = {
-    threshold: [0.88, 0.93],
+    threshold: [0.8, 1],
   };
 </script>
 
@@ -38,7 +67,7 @@
         <!-- <ObservedArticleText callback={() => {}} {options}> -->
         <div>
           <ArticleText>
-            <h3>
+            <p>
               While this graph is intended to display the Median Family Wealth,
               by Race or Ethnicity, between 1963 and 2019, if we look closer, we
               can <em>see</em> the difference in wealth that white Americans
@@ -46,16 +75,16 @@
               Americans, going back roughly 3 generations (<a
                 href="https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/"
                 >Generation X, Millenials, and Gen Z</a
-              >).
-            </h3>
+              >). This graph illustrates the racial wealth gap in the US, and it appears to span multiple generations.
+            </p>
           </ArticleText>
 
           <ArticleText>
-            <h3>
+            <p>
               The median family wealth of all 3 racial/ethnic groups shown in
               this graph is generally increasing, lending to the idea that
-              wealth is compounded through generations.
-            </h3>
+              wealth accumulates through generations.
+            </p>
           </ArticleText>
 
           <div>
@@ -69,19 +98,28 @@
           </div>
 
           <ArticleText>
-            <h3>
-              The graph shown above shows that 2021 data revealed that a higher
+            <p>
+              The graph shown above shows that 2021 data revealed a higher
               percent of white 18-28 year olds received gifts or an inheritance
-              compared to their Black and Hispanic peers, potentially due to
-              the generational wealth gap. It may be more feasible for white
-              people from older generations to pass on wealth to their
-              descendants than it is for Black and Hispanic people of the same
-              generations.
-            </h3>
+              compared to their Black and Hispanic peers, potentially due to the
+              racial wealth gap. It may be more feasible for white people from
+              older generations to pass on wealth to their descendants than it
+              is for Black and Hispanic people of the same generations. The
+              racial wealth gap between an older generation could influence the
+              racial wealth gap between a younger generation.
+            </p>
           </ArticleText>
+        </div>
+        <!-- </ObservedArticleText> -->
+      {/snippet}
+    </Scroller>
 
-          <ArticleText>
-            <h3>
+    <div class="beforeText">
+      <ObservedArticleText callback={setTableIntroVisibility} {options}>
+        <div class="start-section">
+          <!-- TODO: fix stuttering with fade transition -->
+          {#if tableIntroIsVisible}
+            <h3 class="text-before-scroll" transition:fade>
               The table below, created by the Black Wealth Data Center (BWDC),
               breaks down the Percent of Households Holding Asset and Debt Types
               by Race/Ethnicity between 2007 and 2022. This data may also
@@ -97,11 +135,10 @@
 
               Take a look and see what else you might notice.
             </h3>
-          </ArticleText>
+          {/if}
         </div>
-        <!-- </ObservedArticleText> -->
-      {/snippet}
-    </Scroller>
+      </ObservedArticleText>
+    </div>
 
     <div
       class="tableauPlaceholder"
@@ -154,31 +191,53 @@
       vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script>
 
-    <Scroller layout="left">
+    <!-- <Scroller layout="left">
       {#snippet sticky()}
-        <!-- <ArticleText>
+        <ArticleText>
           <h3>
             You may ask "what is the significance of this wealth gap that has
             persisted for generations? How does this truly affect real people?".
           </h3>
-        </ArticleText> -->
-      {/snippet}
-
-      {#snippet scrolly()}
-        <ArticleText>
-          <h3>
-            The existence of this wealth gap between racial/ethnic groups in
-            America has been <a
-              href="https://apps.urban.org/features/wealth-inequality-charts/"
-              >recognized and generational wealth is shown to contribute to it
-            </a>, but it can be helpful to have it visualized to truly grasp it.
-            While there are a variety of possible factors that could contribute
-            this issue, we will solely consider the potential <em>impact</em> that
-            this gap has had on Americans.
-          </h3>
         </ArticleText>
       {/snippet}
-    </Scroller>
+
+      {#snippet scrolly()}{/snippet}
+    </Scroller> -->
+
+    <div class="afterText">
+      <ObservedArticleText callback={setTableOutroVisibility} {options}>
+        <div class="start-section">
+          <!-- TODO: fix stuttering with fade transition -->
+          {#if tableOutroIsVisible}
+            <h3 class="text-before-scroll" transition:fade>
+              The existence of this wealth gap between racial/ethnic groups in
+              America has been <a
+                href="https://apps.urban.org/features/wealth-inequality-charts/"
+                >recognized and generational wealth is shown to contribute to it
+              </a>, but it can be helpful to have it visualized to truly grasp
+              it. While there are a variety of possible factors that could
+              contribute this issue, we will solely consider the potential
+              <em>impact</em> that this gap has had on Americans.
+            </h3>
+          {/if}
+        </div>
+      </ObservedArticleText>
+    </div>
+
+    <!-- <div class="afterText">
+      <ArticleText>
+        <p>
+          The existence of this wealth gap between racial/ethnic groups in
+          America has been <a
+            href="https://apps.urban.org/features/wealth-inequality-charts/"
+            >recognized and generational wealth is shown to contribute to it
+          </a>, but it can be helpful to have it visualized to truly grasp it.
+          While there are a variety of possible factors that could contribute
+          this issue, we will solely consider the potential <em>impact</em> that
+          this gap has had on Americans.
+        </p>
+      </ArticleText>
+    </div> -->
   </div>
 </main>
 
@@ -192,6 +251,14 @@
     font-family: "SpaceMono";
     font-style: italic;
   } */
+
+  h3 {
+    font-family: "Cinzel";
+    font-style: italic;
+    font-size: 28px;
+    text-align: center;
+    padding: 40px;
+  }
   .wealthImage,
   .giftsImage,
   .tableauPlaceholder {
@@ -210,5 +277,19 @@
 
   a {
     color: #9a8c98;
+  }
+
+  .beforeText,
+  .afterText {
+    height: 100vh;
+    background-color: #c9ada7;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* padding: 30px;
+    padding-top: 200px;
+    margin-top: 100px; */
+    padding: min(20vh, 20rem) 1rem;
   }
 </style>

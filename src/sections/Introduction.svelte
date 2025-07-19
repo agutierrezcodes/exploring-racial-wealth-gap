@@ -15,6 +15,18 @@
     threshold: [0.85, 0.95],
   };
 
+  const setIntroVisibility = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.8) {
+        introIsVisible = true;
+      } else if (entry.intersectionRatio < 0.8) {
+        introIsVisible = false;
+      }
+    });
+  };
+
   const removeStartTextCallback = (entries, observer) => {
     entries.forEach((entry) => {
       const elem = entry.target;
@@ -77,13 +89,19 @@
 </script>
 
 <div class="introduction-text">
-  <div class="start-section">
-    {#if introIsVisible}
-      <h3 class="text-before-scroll" transition:fade>
-        Let's start by defining generational wealth
-      </h3>
-    {/if}
-  </div>
+  <ObservedArticleText callback={setIntroVisibility} {options}>
+    <div class="start-section">
+      {#if introIsVisible}
+        <h3 class="text-before-scroll" transition:fade>
+          Let's start by defining the term "generational wealth".
+
+          <br />
+
+          I promise it's relevant.
+        </h3>
+      {/if}
+    </div>
+  </ObservedArticleText>
 
   <div transition:fade>
     <Scroller layout="right">
@@ -141,8 +159,8 @@
         <ArticleText>
           <p>
             Now that we understand the overall concept of generational wealth,
-            let us take a look at the wealth <strong>gap</strong> in the US, consider
-            how generational wealth may be a factor, and examine the impact of this
+            let us take a look at the racial wealth gap in the US, consider how
+            generational wealth may be a factor, and examine the impact of this
             gap.
           </p>
         </ArticleText>

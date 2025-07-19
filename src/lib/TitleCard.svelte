@@ -11,7 +11,7 @@
   <div>
     <h4 class="scroll-text">{scroll}</h4>
 
-    <img src={scrollImg} alt={scrollImgAlt} />
+    <img class="down-arrow" src={scrollImg} alt={scrollImgAlt} />
   </div>
 </div>
 
@@ -62,7 +62,6 @@
   }
 
   img {
-    /* make sure img is centered and responsive*/
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -82,5 +81,41 @@
     p {
       font-size: 1.1rem;
     }
+
+    /* .down-arrow {
+      position: absolute;
+      top: calc(100vh - 80px);
+      left: calc(50% - 14px);
+      width: 0;
+      height: 30px;
+      border: 2px solid;
+      border-radius: 2px;
+      animation: jumpInfinite 1.5s infinite;
+    }
+
+    .down-arrow:after {
+      content: " ";
+      position: absolute;
+      top: 12px;
+      left: -10px;
+      width: 16px;
+      height: 16px;
+      border-bottom: 4px solid;
+      border-right: 4px solid;
+      border-radius: 4px;
+      transform: rotateZ(45deg);
+    }
+
+    @keyframes jumpInfinite {
+      0% {
+        margin-top: 0;
+      }
+      50% {
+        margin-top: 20px;
+      }
+      100% {
+        margin-top: 0;
+      } 
+    } */
   }
 </style>
