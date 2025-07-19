@@ -75,15 +75,15 @@
               Americans, going back roughly 3 generations (<a
                 href="https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/"
                 >Generation X, Millenials, and Gen Z</a
-              >). This graph illustrates the racial wealth gap in the US, and it appears to span multiple generations.
+              >). This graph might illustrate the racial wealth gap in the US, and it appears to span multiple generations.
             </p>
           </ArticleText>
 
           <ArticleText>
             <p>
               The median family wealth of all 3 racial/ethnic groups shown in
-              this graph is generally increasing, lending to the idea that
-              wealth accumulates through generations.
+              this graph is generally increasing, also lending to the idea of
+              wealth accumulating through generations.
             </p>
           </ArticleText>
 
@@ -99,7 +99,7 @@
 
           <ArticleText>
             <p>
-              The graph shown above shows that 2021 data revealed a higher
+              The graph included above shows that 2021 data revealed a higher
               percent of white 18-28 year olds received gifts or an inheritance
               compared to their Black and Hispanic peers, potentially due to the
               racial wealth gap. It may be more feasible for white people from

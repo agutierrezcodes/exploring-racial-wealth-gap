@@ -69,9 +69,9 @@
               {#if edIntroIsVisible}
                 <h3 class="text-before-scroll" transition:fade>
                   Generational wealth does not just influence finances. There is
-                  a documented positive relationship between wealth and high
-                  educational achievement (attending college/achieving a
-                  bachelor's degree or higher).
+                  a documented positive relationship (INCLUDE HYPERLINK) between
+                  wealth and high educational achievement (attending
+                  college/achieving a bachelor's degree or higher).
                 </h3>
               {/if}
             </div>
@@ -144,11 +144,13 @@
 
         <ArticleText>
           <p>
-            43.3% of white people earned a bachelor's degree or higher between
-            2011-2023. That is 13.3% more than Black people and 20.8% more than
-            Hispanic people. This difference can again be due to a variety of
-            reasons, but we are focusing on the potential <em>impact</em> this difference
-            may have on minorities.
+            This graph from the BWDC shows that according to the National Center
+            for Education Statistics (NCES), 43.3% of white people earned a
+            bachelor's degree or higher between 2011-2023. That is 13.3% more
+            than Black people and 20.8% more than Hispanic people. This
+            difference can again be due to a variety of reasons, but we are
+            focusing on the potential <em>impact</em> this difference may have on
+            these minorities.
           </p>
         </ArticleText>
       {/snippet}
@@ -162,8 +164,9 @@
             {#if incomeIsVisible}
               <h3 class="text-before-scroll" transition:fade>
                 We know that generational wealth positively impacts the rate of
-                high educational achievement. We will now look at how education
-                level correlates to income level. Examine the following graphs.
+                high educational achievement. We will now look the relationship
+                between education level and income. Examine the following
+                graphs.
               </h3>
             {/if}
           </div>
@@ -195,17 +198,18 @@
           <p>
             The first graph shows Median Annual Earnings for Full-Time Workers
             (25-34) by Race/Ethnicity among those who have only obtained a high
-            school diploma while the second graph the same data but among those
-            who have earned a bachelor's degree or higher. There is a marked
-            increase in income among those who completed a bachelor's degree or
-            higher in all races/ethnicities.
+            school diploma while the second graph shows the same data but among
+            those who have earned a bachelor's degree or higher. There is a
+            marked increase in income among those who completed a bachelor's
+            degree or higher, regardless of race or ethnicity.
           </p>
         </ArticleText>
 
         <ArticleText>
           <p>
             We have found evidence that a high education level corresponds to
-            higher income. However, it also offers other benefits, such as the <a
+            higher income. However, higher education also offers other benefits,
+            such as the <a
               href="https://www.luminafoundation.org/files/resources/its-not-just-the-money.pdf"
               >opportunity to build important connections with other
               professionals ("social wealth" or "social capital")</a
@@ -218,23 +222,26 @@
     <div class="afterText">
       <ArticleText>
         <p>
-          The benefits of higher education all translate into more wealth that
-          can be transformed into generational wealth to pass onto children.
-          However, did you notice a trend that stood out in these graphs?
+          The benefits of higher education all seem to translate into more
+          potential generational wealth to pass onto children. However, did you
+          notice a trend that stood out in these graphs?
         </p>
       </ArticleText>
 
       <ArticleText>
         <p>
-          One observation of this information could be that white people in this
-          data had higher advanced education rates and higher income levels
-          (regardless of education level) than Black and Hispanic people. Since
-          generational wealth can lead to a higher education advanced education
-          rates and a higher education level can lead to a higher income level,
-          this racial wealth gap could be partially attributed to the higher
-          amount of wealth that white people of older generations have (compared
-          to Black/Hispanic people in the same age groups). We may have
-          uncovered an impact of generational wealth on the current racial
+          One observation of the presented information could be that white
+          people in this data had higher advanced education rates and higher
+          income levels (regardless of education level) than Black and Hispanic
+          people. Since generational wealth can lead to higher advanced
+          education rates and a higher education level can lead to a higher
+          income level, this racial wealth gap could be partially attributed to
+          the higher amount of wealth that white people of older generations
+          have (compared to Black/Hispanic people in the same age groups).
+
+          <br />
+          <br />
+          We may have uncovered an impact of generational wealth on the current racial
           wealth gap.
         </p>
       </ArticleText>
