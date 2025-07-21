@@ -96,8 +96,9 @@
           Let's start by defining the term "generational wealth".
 
           <br />
+          <br />
 
-          I promise it's relevant.
+          I promise, it's relevant.
         </h3>
       {/if}
     </div>
@@ -133,7 +134,7 @@
         {#if box2}
           <div transition:fade={{ delay: 50, duration: 1000 }}> -->
         <ArticleText>
-          <p>Wealth can come in many forms.</p>
+          <p>This wealth can come in many forms.</p>
         </ArticleText>
         <!-- </div>
         {/if}
@@ -144,9 +145,13 @@
           <div transition:fade={{ delay: 50, duration: 1000 }}> -->
         <ArticleText>
           <p>
-            This can include cash savings, assets, real estate, connections, and
-            even knowledge. This allows the wealthy to give their descendants
-            better opportunities in life (essentially, a "step up").
+            It can include <a
+              href="https://dfpi.ca.gov/news/insights/five-steps-to-building-generational-wealth/"
+              target="_blank"
+              >cash savings, assets such as real estate, connections, and even
+              knowledge</a
+            >. This allows the wealthy to give their descendants better
+            opportunities in life (essentially, a "step up").
           </p>
         </ArticleText>
         <!-- </div>
@@ -159,9 +164,9 @@
         <ArticleText>
           <p>
             Now that we understand the overall concept of generational wealth,
-            let us take a look at the racial wealth gap in the US, consider how
-            generational wealth may be a factor, and examine the impact of this
-            gap.
+            let us take a look at the racial wealth gap in the United States,
+            consider how generational wealth may be a factor, and examine the
+            impact of this gap.
           </p>
         </ArticleText>
         <!-- </div>
@@ -173,11 +178,20 @@
 </div>
 
 <style>
+  .introduction-text p {
+    font-family: "Maitree";
+    font-style: normal;
+    font-weight: 300;
+  }
   .introduction-text {
     color: #22223b;
-    font-family: "Times New Roman", Times, serif;
-    margin-top: 40px;
+    margin-top: 50rem;
+    margin-bottom: 50rem;
+    padding-top: 50rem;
+    padding-bottom: 50rem;
     background-color: #c9ada7;
+
+    box-shadow: 16px 16px 12px #22223b;
   }
 
   h3 {
@@ -195,5 +209,9 @@
     text-align: center;
     padding: 3rem;
     box-sizing: border-box;
+  }
+
+  a {
+    color: #9a8c98;
   }
 </style>

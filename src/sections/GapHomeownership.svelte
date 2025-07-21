@@ -15,9 +15,22 @@
     threshold: [0.85, 0.95],
   };
 
-  let edIntroIsVisible = $state(true);
+  let homeIntroIsVisible = $state(true);
+  let recapIsVisible = $state(true);
   let degreeIsVisible = $state(true);
   let incomeIsVisible = $state(true);
+
+  const setRecapVisibility = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.9) {
+        recapIsVisible = true;
+      } else if (entry.intersectionRatio < 0.9) {
+        recapIsVisible = false;
+      }
+    });
+  };
 
   const setIncomeVisibility = (entries, observer) => {
     entries.forEach((entry) => {
@@ -43,14 +56,14 @@
     });
   };
 
-  const setEdIntroVisibility = (entries, observer) => {
+  const setHomeIntroVisibility = (entries, observer) => {
     entries.forEach((entry) => {
       const elem = entry.target;
 
       if (entry.intersectionRatio >= 0.9) {
-        edIntroIsVisible = true;
+        homeIntroIsVisible = true;
       } else if (entry.intersectionRatio < 0.9) {
-        edIntroIsVisible = false;
+        homeIntroIsVisible = false;
       }
     });
   };
@@ -59,22 +72,43 @@
 <main>
   <SubsectionCard {subheader} {subtitle} />
 
-  <div class="gapEdSection">
+  <div class="gapHomeSection">
+    <ObservedArticleText callback={setHomeIntroVisibility} {options}>
+      <div class="start-section">
+        <!-- TODO: fix stuttering with fade transition -->
+        {#if homeIntroIsVisible}
+          <h3 class="text-before-scroll" transition:fade>
+            By this point, you might already see where this is going, but if
+            not, no worries! We will briefly recap what we have seen so far!
+          </h3>
+        {/if}
+      </div>
+    </ObservedArticleText>
+
+    <ObservedArticleText callback={setRecapVisibility} {options}>
+      <div class="start-section">
+        <!-- TODO: fix stuttering with fade transition -->
+        {#if recapIsVisible}
+          <ArticleText>
+            <ol>
+              <li>The racial wealth gap in the United States has existed for generations. The median white household has more wealth than the median Black households and median Hispanic households. </li>
+              <img src="down-arrow.png" alt="arrow pointing down" />
+              <li>
+                Wealth positively impacts a person's chances of obtaining a
+                higher education (bachelor's degree or higher).
+              </li>
+              <img src="down-arrow.png" alt="arrow pointing down" />
+              <li>A higher education correlates to a higher income level.</li>
+            </ol>
+          </ArticleText>
+        {/if}
+      </div>
+    </ObservedArticleText>
+
     <Scroller layout="right">
       {#snippet sticky()}
         <div class="edIntroSection">
-          <ObservedArticleText callback={setEdIntroVisibility} {options}>
-            <div class="start-section">
-              <!-- TODO: fix stuttering with fade transition -->
-              {#if edIntroIsVisible}
-                <h3 class="text-before-scroll" transition:fade>
-                  By this point, you might be asking: "what is the significance
-                  of this racial wealth gap that has persisted for generations?
-                  How does it truly affect people <em>now</em>?"
-                </h3>
-              {/if}
-            </div>
-          </ObservedArticleText>
+          <h1>Homeownership Rates</h1>
         </div>
       {/snippet}
 
@@ -85,16 +119,13 @@
             <p>
               The following graph summarizes part of <a
                 href="https://www.urban.org/sites/default/files/publication/89976/wealth_and_education_3.pdf"
-                target="_blank">Braga, et al's</a
+                target="_blank">Braga et al's</a
               > research, who found that “Young people from high-wealth families
               (wealth above roughly $223,500) are more than one and a half times
               as likely to complete at least two or four years of college by age
               25 as those in low-wealth families (wealth below $2,000).(1) High-wealth
               youth have a 70 percent chance of completing at least two years and
-              a 43 percent chance of completing at least four years of college. Similar
-              young people in low-wealth families have only a 41 percent chance of
-              completing at least two years and a 24 percent chance of completing
-              at least four years. ”
+              a 43 percent chance of completing at least four years of college.”
             </p>
           </ArticleText>
 
@@ -105,7 +136,7 @@
               ><img
                 class="wealthCollegeImage"
                 src="wealth-college.png"
-                alt="Graph that shows "
+                alt="Graph that shows percent of youth with at least 4 years of college attainment, broken down by income level"
               /></a
             >
           </div>
@@ -122,7 +153,7 @@
               <!-- TODO: fix stuttering with fade transition -->
               {#if degreeIsVisible}
                 <h3 class="text-before-scroll" transition:fade>
-                  Let us also look at rates of degree attainment in America.
+                  Let us now look at rates of degree attainment in America.
                 </h3>
               {/if}
             </div>
@@ -136,18 +167,20 @@
             ><img
               class="degreeRates"
               src="DegreeAttainment.png"
-              alt="Graph that shows "
+              alt="Graph that shows Degree Attainment, by Race or Ethnicity"
             /></a
           >
         </div>
 
         <ArticleText>
           <p>
-            43.3% of white people earned a bachelor's degree or higher between
-            2011-2023. That is 13.3% more than Black people and 20.8% more than
-            Hispanic people. This difference can again be due to a variety of
-            reasons, but we are focusing on the potential <em>impact</em> this difference
-            may have on minorities.
+            This graph from the BWDC shows that according to the National Center
+            for Education Statistics (NCES), 43.3% of white people earned a
+            bachelor's degree or higher between 2011-2023. That is 13.3% more
+            than Black people and 20.8% more than Hispanic people. This
+            difference can again be due to a variety of reasons, but we are
+            focusing on the potential <em>impact</em> this difference may have on
+            these minorities.
           </p>
         </ArticleText>
       {/snippet}
@@ -160,9 +193,8 @@
             <!-- TODO: fix stuttering with fade transition -->
             {#if incomeIsVisible}
               <h3 class="text-before-scroll" transition:fade>
-                We know that generational wealth positively impacts the rate of
-                high educational achievement. We will now look at how education
-                level correlates to income level. Examine the following graphs.
+                We will now consider the relationship between education level
+                and income. Examine the following graphs.
               </h3>
             {/if}
           </div>
@@ -175,7 +207,8 @@
             ><img
               class="hsIncome"
               src="high-school-income.png"
-              alt="Graph that shows "
+              alt="Graph that shows Median Annual Earnings for Full-Time Workers
+            (25-34 years old) by Race/Ethnicity (High school completion)"
             /></a
           >
         </div>
@@ -185,7 +218,8 @@
             ><img
               class="collegeIncome"
               src="college-income.png"
-              alt="Graph that shows "
+              alt="Graph that shows Median Annual Earnings for Full-Time Workers
+            (25-34 years old) by Race/Ethnicity (Bachelor's or higher degree)"
             /></a
           >
         </div>
@@ -193,18 +227,20 @@
         <ArticleText>
           <p>
             The first graph shows Median Annual Earnings for Full-Time Workers
-            (25-34) by Race/Ethnicity among those who have only obtained a high
-            school diploma while the second graph the same data but among those
-            who have earned a bachelor's degree or higher. There is a marked
-            increase in income among those who completed a bachelor's degree or
-            higher in all races/ethnicities.
+            (25-34 years old) by Race/Ethnicity among those who have only
+            obtained a high school diploma while the second graph shows the same
+            data but among those who have earned a bachelor's degree or higher.
+            There is a marked increase in income among those who completed a
+            bachelor's degree or higher, regardless of race or ethnicity.
           </p>
         </ArticleText>
 
         <ArticleText>
+          <h3>IMPORTANT OBSERVATION</h3>
           <p>
             We have found evidence that a high education level corresponds to
-            higher income. However, it also offers other benefits, such as the <a
+            higher income. However, higher education also offers other benefits,
+            such as the <a
               href="https://www.luminafoundation.org/files/resources/its-not-just-the-money.pdf"
               >opportunity to build important connections with other
               professionals ("social wealth" or "social capital")</a
@@ -214,43 +250,23 @@
       {/snippet}
     </Scroller>
 
-    <div class="afterText">
-      <ArticleText>
-        <p>
-          The benefits of higher education all translate into more wealth that
-          can be transformed into generational wealth to pass onto children.
-          However, did you notice a trend that stood out in these graphs?
-        </p>
-      </ArticleText>
+    <div class="afterText"></div>
 
-      <ArticleText>
-        <p>
-          One observation of this information could be that white people in this
-          data had higher advanced education rates and higher income levels
-          (regardless of education level) than Black and Hispanic people. Since
-          generational wealth can lead to a higher education advanced education
-          rates and a higher education level can lead to a higher income level,
-          this racial wealth gap could be partially attributed to the higher
-          amount of wealth that white people of older generations have (compared
-          to Black/Hispanic people in the same age groups). We may have
-          uncovered an impact of generational wealth on the current racial
-          wealth gap.
-        </p>
-      </ArticleText>
-    </div>
+    <div class="afterText"></div>
+
+    <div class="finalText"></div>
   </div>
 </main>
 
 <style>
-  /* h4 {
-    color: #f2e9e4;
-    opacity: 80%;
-    text-align: center;
-    font-size: 28px;
-    padding-bottom: 50px;
-    font-family: "SpaceMono";
-    font-style: italic;
-  } */
+  .gapHomeSection {
+    margin-top: 50rem;
+    margin-bottom: 50rem;
+
+    box-shadow: 16px 16px 12px #22223b;
+    background-color: #c9ada7;
+    padding-top: 3rem;
+  }
   .wealthCollegeImage,
   .collegeIncome,
   .hsIncome,
@@ -272,12 +288,13 @@
     color: #9a8c98;
   }
 
-  .afterText {
+  .afterText,
+  .finalText {
+    height: 100vh;
     background-color: #c9ada7;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     /* padding: 30px;
     padding-top: 200px;
     margin-top: 100px; */
@@ -287,8 +304,66 @@
   h3 {
     font-family: "Cinzel";
     font-style: italic;
+    font-size: 26px;
+    text-align: center;
+    padding: 3.7rem;
+    background-color: #9a8c98;
+    border: 8px ridge #4a4e69;
+    border-radius: 4px;
+    margin: 8%;
+    box-shadow: 12px 12px 16px black;
+    color: #f2e9e4;
+  }
+
+  .maiBold {
+    font-weight: 600;
+  }
+
+  h3 > a {
+    color: #4a4e69;
+  }
+
+  .text-before-scroll {
+    font-family: "Maitree";
+    font-style: normal;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  p {
+    font-family: "Maitree";
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  div.afterText h3,
+  div.finalText h3 {
+    font-family: "Maitree";
+    font-style: normal;
+    font-weight: 300;
     font-size: 28px;
     text-align: center;
-    padding: 40px;
+    padding: 50px;
+    border-style: ridge;
+    border-color: #4a4e69;
+    border-radius: 4px;
+    border-width: 8px;
+    background-color: #9a8c98;
+    color: #f2e9e4;
+    margin: 10%;
+
+    box-shadow: 12px 12px 16px black;
+  }
+
+  img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    height: 50px;
+    max-width: 8%;
+    opacity: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
   }
 </style>

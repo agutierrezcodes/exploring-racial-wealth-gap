@@ -47,18 +47,20 @@
     font-size: 1.6rem;
     color: #22223b;
     margin-top: 1rem;
-    font-family: "Times New Roman";
+    font-family: "Maitree";
     font-style: italic;
-    font-weight: bold;
+
+    font-weight: 300;
   }
 
   h4 {
     color: #f2e9e4;
-    opacity: 40%;
+    opacity: 20%;
     text-align: center;
     font-size: 24px;
-    font-family: "SpaceMono";
+    font-family: "Maitree" semibold;
     font-style: italic;
+    font-weight: 500;
   }
 
   img {

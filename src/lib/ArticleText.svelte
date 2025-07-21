@@ -14,7 +14,7 @@
     width: 50%;
     background-color: #f2e9e4;
     color: #22223b;
-    border: solid #22223b 1.5px;
+    border: outset #4a4e69 3px;
     border-radius: 12px;
     padding-top: 30px;
     padding-bottom: 30px;
