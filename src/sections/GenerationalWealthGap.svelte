@@ -308,6 +308,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     border: outset #9a8c98 10px;
+    max-width: 90%;
   }
 
   a {
