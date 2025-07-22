@@ -20,3 +20,7 @@ Run `npm install` and then `npm run dev` to spin up the project locally. Then, s
 
 ## Credit
 Repo created using vite (`npm create vite@6`)
+
+Credit for code that allows button to trigger smooth scroll to top: https://stackoverflow.com/questions/58213748/how-to-animate-scroll-to-top-javascript
+
+Code credit for advanced hemisphere border style: https://www.entheosweb.com/tutorials/css-borders-tutorial/ 

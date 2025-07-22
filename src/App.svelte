@@ -12,6 +12,7 @@
   import GenerationalWealthGap from "./sections/GenerationalWealthGap.svelte";
   import GapEducation from "./sections/GapEducation.svelte";
   import GapHomeownership from "./sections/GapHomeownership.svelte";
+  import Conclusion from "./sections/Conclusion.svelte";
 </script>
 
 <main>
@@ -20,6 +21,7 @@
   <GenerationalWealthGap />
   <GapEducation />
   <GapHomeownership />
+  <Conclusion />
 
   <!-- <RightAlignedExample />
   <LeftAlignedExample />

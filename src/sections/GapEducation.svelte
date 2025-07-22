@@ -12,22 +12,48 @@
   const subtitle = "The racial wealth gap and higher education";
 
   const options = {
-    threshold: [0.85, 0.95],
+    threshold: 0.01,
   };
 
   let edIntroIsVisible = $state(true);
   let degreeIsVisible = $state(true);
   let incomeIsVisible = $state(true);
   let outro1IsVisible = $state(true);
+  let outro2IsVisible = $state(true);
+  let outro3IsVisible = $state(true);
 
   const setoutro1Visibility = (entries, observer) => {
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.01) {
         outro1IsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.01) {
         outro1IsVisible = false;
+      }
+    });
+  };
+
+  const setoutro2Visibility = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.01) {
+        outro2IsVisible = true;
+      } else if (entry.intersectionRatio < 0.01) {
+        outro2IsVisible = false;
+      }
+    });
+  };
+
+  const setoutro3Visibility = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.01) {
+        outro3IsVisible = true;
+      } else if (entry.intersectionRatio < 0.01) {
+        outro3IsVisible = false;
       }
     });
   };
@@ -36,9 +62,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.01) {
         incomeIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.01) {
         incomeIsVisible = false;
       }
     });
@@ -48,9 +74,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.01) {
         degreeIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.01) {
         degreeIsVisible = false;
       }
     });
@@ -60,9 +86,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.01) {
         edIntroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.01) {
         edIntroIsVisible = false;
       }
     });
@@ -80,7 +106,10 @@
             <div class="start-section">
               <!-- TODO: fix stuttering with fade transition -->
               {#if edIntroIsVisible}
-                <h3 class="text-before-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
+                <h3
+                  class="text-before-scroll"
+                  transition:fade={{ delay: 50, duration: 1000 }}
+                >
                   Wealth does not only influence finances. There is
                   <a
                     href="https://www.ihep.org/wp-content/uploads/2024/05/IHEP_RWG_FINAL.pdf"
@@ -135,7 +164,10 @@
             <div class="start-section">
               <!-- TODO: fix stuttering with fade transition -->
               {#if degreeIsVisible}
-                <h3 class="text-before-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
+                <h3
+                  class="text-before-scroll"
+                  transition:fade={{ delay: 50, duration: 1000 }}
+                >
                   Let us now look at rates of degree attainment in America.
                 </h3>
               {/if}
@@ -175,7 +207,10 @@
           <div class="start-section">
             <!-- TODO: fix stuttering with fade transition -->
             {#if incomeIsVisible}
-              <h3 class="text-before-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
+              <h3
+                class="text-before-scroll"
+                transition:fade={{ delay: 50, duration: 1000 }}
+              >
                 We will now consider the relationship between education level
                 and income. Examine the following graphs.
               </h3>
@@ -238,7 +273,10 @@
         <div class="start-section">
           <!-- TODO: fix stuttering with fade transition -->
           {#if outro1IsVisible}
-            <h3 class="text-after-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
+            <h3
+              class="text-after-scroll"
+              transition:fade={{ delay: 50, duration: 1000 }}
+            >
               The benefits of higher education all appear to translate into more
               potential generational wealth to pass on. However, did you notice
               a trend that stood out in these graphs?
@@ -249,11 +287,14 @@
     </div>
 
     <div class="afterText">
-      <ObservedArticleText callback={setoutro1Visibility} {options}>
+      <ObservedArticleText callback={setoutro2Visibility} {options}>
         <div class="start-section">
           <!-- TODO: fix stuttering with fade transition -->
-          {#if outro1IsVisible}
-            <h3 class="text-after-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
+          {#if outro2IsVisible}
+            <h3
+              class="text-after-scroll"
+              transition:fade={{ delay: 50, duration: 1000 }}
+            >
               One observation of the presented information could be that white
               people in this data had higher advanced education rates and higher
               income levels (regardless of education level) than Black and
@@ -276,11 +317,14 @@
     </div>
 
     <div class="finalText">
-      <ObservedArticleText callback={setoutro1Visibility} {options}>
+      <ObservedArticleText callback={setoutro3Visibility} {options}>
         <div class="start-section">
           <!-- TODO: fix stuttering with fade transition -->
-          {#if outro1IsVisible}
-            <h3 class="text-after-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
+          {#if outro3IsVisible}
+            <h3
+              class="text-after-scroll"
+              transition:fade={{ delay: 50, duration: 1000 }}
+            >
               But, can we take this even further?
             </h3>
           {/if}
@@ -338,8 +382,12 @@
     text-align: center;
     padding: 3.7rem;
     background-color: #9a8c98;
-    border: 8px ridge #4a4e69;
-    border-radius: 50%;
+    border: ridge #4a4e69;
+    /* Code credit for advanced hemisphere border style: https://www.entheosweb.com/tutorials/css-borders-tutorial/ */
+    border-width: 4px 14px 4px 14px;
+    border-radius: 100px 100px 0 0;
+    -moz-border-radius: 100px 100px 0 0;
+    -webkit-border-radius: 100px 100px 0 0;
     margin: 8%;
     box-shadow: 12px 12px 16px black;
     color: #f2e9e4;

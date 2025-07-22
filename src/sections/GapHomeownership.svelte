@@ -12,46 +12,21 @@
   const subtitle = "The racial wealth gap and homeownership rates";
 
   const options = {
-    threshold: [0.65, 0.9],
+    threshold: 0.01,
   };
 
   let homeIntroIsVisible = $state(true);
   let recapIsVisible = $state(true);
-  let degreeIsVisible = $state(true);
-  let incomeIsVisible = $state(true);
+  let interestIsVisible = $state(true);
 
-  const setRecapVisibility = (entries, observer) => {
+  const setInterestVisibility = (entries, observer) => {
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.7) {
-        recapIsVisible = true;
-      } else if (entry.intersectionRatio < 0.7) {
-        recapIsVisible = false;
-      }
-    });
-  };
-
-  const setIncomeVisibility = (entries, observer) => {
-    entries.forEach((entry) => {
-      const elem = entry.target;
-
-      if (entry.intersectionRatio >= 0.8) {
-        incomeIsVisible = true;
-      } else if (entry.intersectionRatio < 0.8) {
-        incomeIsVisible = false;
-      }
-    });
-  };
-
-  const setDegreeVisibility = (entries, observer) => {
-    entries.forEach((entry) => {
-      const elem = entry.target;
-
-      if (entry.intersectionRatio >= 0.9) {
-        degreeIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
-        degreeIsVisible = false;
+      if (entry.intersectionRatio >= 0.01) {
+        interestIsVisible = true;
+      } else if (entry.intersectionRatio < 0.01) {
+        interestIsVisible = false;
       }
     });
   };
@@ -60,9 +35,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.5) {
+      if (entry.intersectionRatio >= 0.01) {
         homeIntroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.5) {
+      } else if (entry.intersectionRatio < 0.01) {
         homeIntroIsVisible = false;
       }
     });
@@ -301,8 +276,8 @@
 
       <Scroller layout="right">
         {#snippet sticky()}
-          <div class="degreeAttainSection">
-            <ObservedArticleText callback={setDegreeVisibility} {options}>
+          <div class="interestSection">
+            <ObservedArticleText callback={setInterestVisibility} {options}>
               <div class="homeIntroSection">
                 <h2 transition:fade={{ delay: 50, duration: 1000 }}>
                   Interest Rates
@@ -337,35 +312,35 @@
 
     <div>
       <div class="additional-notes">
-        <ArticleText>
-          <p>
-            Unfortunately, there is a <a
-              href="https://massbudget.org/2021/08/06/a-history-of-racist-federal-housing-policies/"
-              target="_blank"
-              >long history of racist policies (including red-lining,
-              descrimination in loan approval processes, exclusion from the 1944
-              GI Bill)</a
-            > in America that have made it harder for Black and Hispanic Americans
-            to purchase homes. These policies have contributed to the gap in homeownership
-            rates that we see today.
-          </p>
-        </ArticleText>
+        <h3>
+          Unfortunately, there is a <a
+            href="https://massbudget.org/2021/08/06/a-history-of-racist-federal-housing-policies/"
+            target="_blank"
+            >long history of racist policies (including red-lining,
+            descrimination in loan approval processes, exclusion from the 1944
+            GI Bill)</a
+          > in America that have made it harder for Black and Hispanic Americans
+          to purchase homes. These policies have contributed to the gap in homeownership
+          rates that we see today.
+        </h3>
       </div>
 
       <div class="additional-notes">
-        <ArticleText>
-          <p>
-            The graph below from the BWDC shows the Homeownership Rate, by
-            Race/Ethnicity, of individual United States counties.
-          </p>
+        <h3>
+          The graph below from the BWDC shows the Homeownership Rate, by
+          Race/Ethnicity, of individual United States counties.
 
-          <h4 class="challenge">Challenge:</h4>
+          <br />
+          <br />
 
-          <p>
-            Use this graph to find the Homeownership Rate breakdown of one
-            county of your choice!
-          </p>
-        </ArticleText>
+          <span class="challenge">Challenge:</span>
+
+          <br />
+          <br />
+
+          Use this graph to find the Homeownership Rate breakdown of one county
+          of your choice!
+        </h3>
       </div>
     </div>
 
@@ -424,6 +399,10 @@
 
     box-shadow: 16px 16px 12px #22223b;
     background-color: #4a4e69;
+  }
+
+  .challenge {
+    font-weight: 600;
   }
   .wealthCollegeImage,
   .collegeIncome,
@@ -568,12 +547,12 @@
     font-style: italic;
     font-size: 32px;
     text-align: center;
+    color: #22223b;
   }
 
   .additional-notes {
     background-color: #c9ada7;
     height: 100vh;
-    background-color: #c9ada7;
     display: flex;
     align-items: center;
     justify-content: center;

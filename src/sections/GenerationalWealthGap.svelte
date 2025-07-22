@@ -15,32 +15,57 @@
 
   let tableOutroIsVisible = $state(true);
 
+  let okChangeIntro = $state(true);
+
   const setTableIntroVisibility = (entries, observer) => {
+    // entries.forEach((entry) => {
+    //   const elem = entry.target;
+
+    //   if (okChangeIntro) {
+    //     if (entry.intersectionRatio >= 0.8) {
+    //       tableIntroIsVisible = true;
+    //       console.log(tableIntroIsVisible);
+    //     } else if (entry.intersectionRatio < 0.8) {
+    //       tableIntroIsVisible = false;
+    //       console.log(tableIntroIsVisible);
+    //     }
+
+    //     setTimeout(() => {
+    //       okChangeIntro = false;
+    //       console.log("Delayed for 1 second.");
+    //       updateOkChange(okChangeIntro);
+    //     }, 1000);
+    //   }
+    // });
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.8) {
+      if (entry.intersectionRatio >= 0.01) {
         tableIntroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.8) {
+      } else if (entry.intersectionRatio < 0.01) {
         tableIntroIsVisible = false;
       }
     });
   };
 
+  function updateOkChange(okChange) {
+    okChange = true;
+  }
+
   const setTableOutroVisibility = (entries, observer) => {
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.8) {
+      if (entry.intersectionRatio >= 0.01) {
         tableOutroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.8) {
+      } else if (entry.intersectionRatio < 0.01) {
         tableOutroIsVisible = false;
       }
     });
   };
 
   const options = {
-    threshold: [0.75, 0.85],
+    threshold: 0.01,
   };
 </script>
 
@@ -119,7 +144,7 @@
             <ArticleText>
               <h3>IMPORTANT OBSERVATION</h3>
               <p>
-                This difference in financial assistance could potentially due to
+                This difference in financial assistance could potentially be due to
                 the racial wealth gap. It may be more feasible for white people
                 from older generations to pass on wealth to their descendants
                 than it is for Black and Hispanic people of the same
@@ -290,14 +315,14 @@
     font-style: italic;
     font-size: 28px;
     text-align: center;
-    padding: 50px;
+    padding: 2rem;
     border-style: ridge;
     border-color: #4a4e69;
     border-radius: 4px;
     border-width: 8px;
     background-color: #9a8c98;
     color: #f2e9e4;
-    margin: 10%;
+    margin: 2rem;
 
     box-shadow: 12px 12px 16px black;
   }
