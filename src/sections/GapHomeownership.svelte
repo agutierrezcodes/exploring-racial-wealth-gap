@@ -12,7 +12,7 @@
   const subtitle = "The racial wealth gap and homeownership rates";
 
   const options = {
-    threshold: [0.85, 0.95],
+    threshold: [0.65, 0.9],
   };
 
   let homeIntroIsVisible = $state(true);
@@ -24,9 +24,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.7) {
         recapIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.7) {
         recapIsVisible = false;
       }
     });
@@ -36,9 +36,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.8) {
         incomeIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.8) {
         incomeIsVisible = false;
       }
     });
@@ -60,9 +60,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.5) {
         homeIntroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.5) {
         homeIntroIsVisible = false;
       }
     });
@@ -74,53 +74,69 @@
 
   <div class="gapHomeSection">
     <div class="beforeEmbed">
-      <ObservedArticleText callback={setHomeIntroVisibility} {options}>
-        <div class="start-section">
+      <div class="start-section">
+        <ObservedArticleText callback={setHomeIntroVisibility} {options}>
           <!-- TODO: fix stuttering with fade transition -->
           {#if homeIntroIsVisible}
-            <h3 class="text-before-scroll" transition:fade>
+            <h3
+              class="text-before-scroll"
+              transition:fade={{ delay: 50, duration: 1000 }}
+            >
               By this point, you might already see where this is going, but if
               not, no worries! We will briefly recap what we have seen so far!
             </h3>
           {/if}
-        </div>
-      </ObservedArticleText>
-
-      <ObservedArticleText callback={setRecapVisibility} {options}>
-        <div class="recap">
-          <!-- TODO: fix stuttering with fade transition -->
-          {#if recapIsVisible}
-            <ArticleText>
-              <ol>
-                <li>
-                  The racial wealth gap in the United States has existed for
-                  generations. As of 2019, the median white household has more
-                  wealth than the median Black households and median Hispanic
-                  households.
-                </li>
-                <img src="down-arrow.png" alt="arrow pointing down" />
-                <li>
-                  Wealth positively impacts a person's chances of obtaining a
-                  higher education (bachelor's degree or higher).
-                </li>
-                <img src="down-arrow.png" alt="arrow pointing down" />
-                <li>A higher education correlates to a higher income level.</li>
-              </ol>
-
-              <br />
-
-              <p>But how does this relate to homeownership rates?</p>
-            </ArticleText>
-          {/if}
-        </div>
-      </ObservedArticleText>
+        </ObservedArticleText>
+      </div>
 
       <br />
 
-      <Scroller layout="right">
+      <!-- <ObservedArticleText callback={setRecapVisibility} {options}> -->
+      <div class="recap">
+        <!-- TODO: fix stuttering with fade transition -->
+
+        <ArticleText>
+          {#if recapIsVisible}
+            <ol transition:fade={{ delay: 50, duration: 1000 }}>
+              <li>
+                The racial wealth gap in the United States has existed for
+                generations. As of 2019, the median white household has more
+                wealth than the median Black households and median Hispanic
+                households.
+              </li>
+              <img
+                class="arrow"
+                src="down-arrow.png"
+                alt="arrow pointing down"
+              />
+              <li>
+                Wealth positively impacts a person's chances of obtaining a
+                higher education (bachelor's degree or higher).
+              </li>
+              <img
+                class="arrow"
+                src="down-arrow.png"
+                alt="arrow pointing down"
+              />
+              <li>A higher education correlates to a higher income level.</li>
+            </ol>
+
+            <br />
+
+            <p>But how does this relate to homeownership rates?</p>
+          {/if}
+        </ArticleText>
+      </div>
+      <!-- </ObservedArticleText> -->
+
+      <br />
+
+      <Scroller layout="left">
         {#snippet sticky()}
           <div class="homeIntroSection">
-            <h1>Homeownership Rates</h1>
+            <h2 transition:fade={{ delay: 50, duration: 1000 }}>
+              Homeownership Rates
+            </h2>
           </div>
         {/snippet}
 
@@ -129,72 +145,168 @@
           <div>
             <ArticleText>
               <p>
-                We last learned that a higher education correlates to a higher
-                income level. How exactly does a higher income level factor in
-                when buying a home?
-              </p>
-
-              <p>
-                cover stats on high income relating to higher homeownership
-                rates - show that white people own more homes and have a lower
-                interest rate usually
-              </p>
-              <p>
-                talk abt Barriers to homeownership for Black people: racist
-                policies, discrimination (red lining, loan denials on basis of
-                race, lower savings leads to higher mortgage loan) - hyperlink
-                to sources
-              </p>
-              <p>
-                back this up with Show that there were fewer originations and
-                higher denials for Black loan-seekers
-              </p>
-              <img
-                src="homeownership.png"
-                alt="Graph that shows US Homeownership Rates of Young Householders with Bachelor's Degrees or Higher by Race or Hispanic Origin: 2000-2019"
-              />
-              <p>
-                To recap: the generational wealth gap contributes to the gap in
-                educational attainment which in turn inhibits the likelihood of
-                homeownership and the possibility of transferring ownership to
-                descendants. (REMEMBER: homeownership is one of the primary ways
-                in which generational wealth is built). And so, the cycle
-                continues.
-              </p>
-              <p>
-                Do we want to try to change this or continue the cycle? (option
-                to cycle back to generational wealth at top of page or continue
-                to solutions section)
+                We previously found evidence that a higher education correlates
+                to a higher income level. So, how exactly does a higher income
+                level factor in when buying a home?
               </p>
             </ArticleText>
 
-            <div>
-              <a
-                href="https://www.urban.org/sites/default/files/publication/89976/wealth_and_education_3.pdf"
-                target="_blank"
-                ><img
-                  class="wealthCollegeImage"
-                  src="wealth-college.png"
-                  alt="Graph that shows percent of youth with at least 4 years of college attainment, broken down by income level"
-                /></a
-              >
-            </div>
+            <ArticleText>
+              <p>
+                This <a
+                  href="https://www.ib.barclays/content/dam/barclaysmicrosites/ibpublic/documents/our-insights/HousingReform/barclays-impact-series-8-addressing-a-growing-divide.pdf"
+                  target="_blank">report from Barclays</a
+                > found that "The homeownership rate for households with low income
+                (below $25,000) is 46%, a figure that may in fact be bolstered by
+                the presence in this group of retirees and other people who have
+                purchased homes when earning higher incomes. The rate is nearly two
+                times higher for households at the top of the income distribution
+                (above $132,000) at 84%."
+              </p>
+            </ArticleText>
+
+            <ArticleText>
+              <p>
+                Another finding of this report is that between 1993 to 2019,
+                White Americans consistently had higher rates of homeownership
+                compared to Black Americans.
+              </p>
+            </ArticleText>
+
+            <a
+              href="https://www.census.gov/library/stories/2022/11/homeownership-by-young-households-below-pre-great-recession-levels.html"
+              ><img
+                src="homeownership-race.png"
+                alt="Graph that shows Homeownership rate by Race, 1983-2019"
+              /></a
+            >
+            <ArticleText>
+              <p>
+                But, let's be extra careful and check their claims against
+                another reliable source.
+              </p>
+            </ArticleText>
+
+            <ArticleText>
+              <p>
+                The following <a
+                  href="https://www.census.gov/library/stories/2022/11/homeownership-by-young-households-below-pre-great-recession-levels.html"
+                  target="_blank">graphs from the United States Census</a
+                >
+                shows that a higher percentage of young people with some form of
+                higher education had a higher homeownership rate than those who had
+                less than a high school education. Of those with a Bachelor's degree
+                or higher, the race/ethnicity with the highest homeownership rate
+                was also found to be Non-Hispanic White, supporting Barclay's findings.
+              </p>
+            </ArticleText>
+
+            <a
+              href="https://www.census.gov/library/stories/2022/11/homeownership-by-young-households-below-pre-great-recession-levels.html"
+              ><img
+                src="homeownership-education.png"
+                alt="Graph that shows US Young Householder Homeownership Rates by Education: 2000-2019"
+              /></a
+            >
+
+            <a
+              href="https://www.census.gov/library/stories/2022/11/homeownership-by-young-households-below-pre-great-recession-levels.html"
+              ><img
+                src="homeownership.png"
+                alt="Graph that shows US Homeownership Rates of Young Householders with Bachelor's Degrees or Higher by Race or Hispanic Origin: 2000-2019"
+              /></a
+            >
+
+            <ArticleText>
+              <p>
+                The report from the United States Census acknowledged that
+                <a
+                  href="https://www.census.gov/library/stories/2022/11/homeownership-by-young-households-below-pre-great-recession-levels.html"
+                  target="_blank"
+                  >homeownership rates of people 25 to 34 years old have fallen
+                  since their height between 2003-2007, due to factors including
+                  the 2007-2009 Recession</a
+                >, but concluded that the gap in homeownership rates between
+                races persists.
+              </p>
+            </ArticleText>
+
+            <ArticleText>
+              <p>
+                These findings support the idea that a higher income level leads
+                to a higher likelihood of eventual homeownership, and reveals
+                that white people are more likely to own a home than Black and
+                Hispanic people.
+              </p>
+            </ArticleText>
+
+            <ArticleText>
+              <p>
+                At this point, you might be asking, "Income level appears to
+                play a part in this gap in homeownership rates between different
+                races, but are there other factors that could explain it?" which
+                is a fantastic question! Next, we review other factors that
+                might explain this difference.
+              </p>
+            </ArticleText>
+
+            <ArticleText>
+              <p>
+                One of the first steps towards purchasing a home typically
+                involves applying for a loan. Let us look at a breakdown of Loan
+                Actions Taken and Loan Product Type by Race or Ethnicity.
+              </p>
+            </ArticleText>
+
+            <a href="https://blackwealthdata.org/explore/homeownership"
+              ><img
+                src="loanActions.png"
+                alt="Graph that shows Loan Actions Taken and Loan Product Type by Race or
+                Ethnicity - Loan Originated"
+              /></a
+            >
+            <ArticleText>
+              <p>
+                One potential takeaway from this graph of 2023 data might be
+                that White and Asian people appear to originate more loans
+                compared to Black and Hispanic people. Let's change the "Action
+                Taken" field from "Loan Originated" to "Application Denied" to
+                see what else we might find.
+              </p>
+            </ArticleText>
+
+            <a href="https://blackwealthdata.org/explore/homeownership"
+              ><img
+                src="loanDenied.png"
+                alt="Graph that shows Loan Actions Taken and Loan Product Type by Race or
+                Ethnicity - Application Denied"
+              /></a
+            >
+
+            <ArticleText>
+              <p>
+                Did the graph reveal what you expected? This data implies that
+                while Black Americans originate fewer loans than White and Asian
+                Americans, they experience the highest number of application
+                denials for loans. This barrier could factor into the lower
+                homeownership rate for Black Americans that we noticed earlier.
+                But is this the only barrier that Black loan-seekers face when
+                applying for a home loan?
+              </p>
+            </ArticleText>
           </div>
           <!-- </ObservedArticleText> -->
         {/snippet}
       </Scroller>
 
-      <Scroller layout="left">
+      <Scroller layout="right">
         {#snippet sticky()}
           <div class="degreeAttainSection">
             <ObservedArticleText callback={setDegreeVisibility} {options}>
-              <div class="start-section">
-                <!-- TODO: fix stuttering with fade transition -->
-                {#if degreeIsVisible}
-                  <h3 class="text-before-scroll" transition:fade>
-                    Let us now look at rates of degree attainment in America.
-                  </h3>
-                {/if}
+              <div class="homeIntroSection">
+                <h2 transition:fade={{ delay: 50, duration: 1000 }}>
+                  Interest Rates
+                </h2>
               </div>
             </ObservedArticleText>
           </div>
@@ -202,28 +314,59 @@
 
         {#snippet scrolly()}
           <div>
-            <a href="" target="_blank"
+            <a
+              href="https://www.jchs.harvard.edu/blog/high-income-black-homeowners-receive-higher-interest-rates-low-income-white-homeowners"
               ><img
-                class="degreeRates"
-                src="DegreeAttainment.png"
-                alt="Graph that shows Degree Attainment, by Race or Ethnicity"
+                src="interestRates.png"
+                alt="Graph that shows Median Mortgage Interest Rate (Percent) - 2019"
               /></a
             >
+            <ArticleText>
+              <p>
+                Data from the 2019 American Housing Survey found that Black
+                homeowners consistently had higher interest rates than White
+                homeowners, regardless of income level. This data might reveal
+                another barrier that Black loan-seekers must overcome to own a
+                home.
+              </p>
+            </ArticleText>
           </div>
-
-          <ArticleText>
-            <p>
-              This graph from the BWDC shows that according to the National
-              Center for Education Statistics (NCES), 43.3% of white people
-              earned a bachelor's degree or higher between 2011-2023. That is
-              13.3% more than Black people and 20.8% more than Hispanic people.
-              This difference can again be due to a variety of reasons, but we
-              are focusing on the potential <em>impact</em> this difference may have
-              on these minorities.
-            </p>
-          </ArticleText>
         {/snippet}
       </Scroller>
+    </div>
+
+    <div>
+      <div class="additional-notes">
+        <ArticleText>
+          <p>
+            Unfortunately, there is a <a
+              href="https://massbudget.org/2021/08/06/a-history-of-racist-federal-housing-policies/"
+              target="_blank"
+              >long history of racist policies (including red-lining,
+              descrimination in loan approval processes, exclusion from the 1944
+              GI Bill)</a
+            > in America that have made it harder for Black and Hispanic Americans
+            to purchase homes. These policies have contributed to the gap in homeownership
+            rates that we see today.
+          </p>
+        </ArticleText>
+      </div>
+
+      <div class="additional-notes">
+        <ArticleText>
+          <p>
+            The graph below from the BWDC shows the Homeownership Rate, by
+            Race/Ethnicity, of individual United States counties.
+          </p>
+
+          <h4 class="challenge">Challenge:</h4>
+
+          <p>
+            Use this graph to find the Homeownership Rate breakdown of one
+            county of your choice!
+          </p>
+        </ArticleText>
+      </div>
     </div>
 
     <div
@@ -271,79 +414,6 @@
         "https://public.tableau.com/javascripts/api/viz_v1.js";
       vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script>
-
-    <div class="afterEmbed">
-      <Scroller layout="right">
-        {#snippet sticky()}
-          <ObservedArticleText callback={setIncomeVisibility} {options}>
-            <div class="start-section">
-              <!-- TODO: fix stuttering with fade transition -->
-              {#if incomeIsVisible}
-                <h3 class="text-before-scroll" transition:fade>
-                  We will now consider the relationship between education level
-                  and income. Examine the following graphs.
-                </h3>
-              {/if}
-            </div>
-          </ObservedArticleText>
-        {/snippet}
-
-        {#snippet scrolly()}
-          <div>
-            <a href="" target="_blank"
-              ><img
-                class="hsIncome"
-                src="high-school-income.png"
-                alt="Graph that shows Median Annual Earnings for Full-Time Workers
-            (25-34 years old) by Race/Ethnicity (High school completion)"
-              /></a
-            >
-          </div>
-
-          <div>
-            <a href="" target="_blank"
-              ><img
-                class="collegeIncome"
-                src="college-income.png"
-                alt="Graph that shows Median Annual Earnings for Full-Time Workers
-            (25-34 years old) by Race/Ethnicity (Bachelor's or higher degree)"
-              /></a
-            >
-          </div>
-
-          <ArticleText>
-            <p>
-              The first graph shows Median Annual Earnings for Full-Time Workers
-              (25-34 years old) by Race/Ethnicity among those who have only
-              obtained a high school diploma while the second graph shows the
-              same data but among those who have earned a bachelor's degree or
-              higher. There is a marked increase in income among those who
-              completed a bachelor's degree or higher, regardless of race or
-              ethnicity.
-            </p>
-          </ArticleText>
-
-          <ArticleText>
-            <h3>IMPORTANT OBSERVATION</h3>
-            <p>
-              We have found evidence that a high education level corresponds to
-              higher income. However, higher education also offers other
-              benefits, such as the <a
-                href="https://www.luminafoundation.org/files/resources/its-not-just-the-money.pdf"
-                >opportunity to build important connections with other
-                professionals ("social wealth" or "social capital")</a
-              >.
-            </p>
-          </ArticleText>
-        {/snippet}
-      </Scroller>
-
-      <div class="afterText"></div>
-
-      <div class="afterText"></div>
-
-      <div class="finalText"></div>
-    </div>
   </div>
 </main>
 
@@ -440,7 +510,7 @@
     box-shadow: 12px 12px 16px black;
   }
 
-  img {
+  .arrow {
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -450,6 +520,16 @@
     opacity: 15%;
     padding-top: 2%;
     padding-bottom: 2%;
+    border: none;
+  }
+
+  img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    max-width: 80%;
+    border: outset #9a8c98 8px;
   }
 
   .recap {
@@ -477,8 +557,29 @@
   }
 
   .beforeEmbed {
-    background-color: #9a8c98;
+    background-color: #c9ada7;
 
     padding-top: 3rem;
+  }
+
+  div.homeIntroSection h2,
+  .challenge {
+    font-family: "Cinzel";
+    font-style: italic;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .additional-notes {
+    background-color: #c9ada7;
+    height: 100vh;
+    background-color: #c9ada7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 30px;
+    padding-top: 200px;
+    margin-top: 100px; */
+    padding: min(20vh, 20rem) 1rem;
   }
 </style>

@@ -19,9 +19,9 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.8) {
         tableIntroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.8) {
         tableIntroIsVisible = false;
       }
     });
@@ -31,16 +31,16 @@
     entries.forEach((entry) => {
       const elem = entry.target;
 
-      if (entry.intersectionRatio >= 0.9) {
+      if (entry.intersectionRatio >= 0.8) {
         tableOutroIsVisible = true;
-      } else if (entry.intersectionRatio < 0.9) {
+      } else if (entry.intersectionRatio < 0.8) {
         tableOutroIsVisible = false;
       }
     });
   };
 
   const options = {
-    threshold: [0.8, 1],
+    threshold: [0.75, 0.85],
   };
 </script>
 
@@ -135,10 +135,14 @@
 
       <div class="beforeText">
         <ObservedArticleText callback={setTableIntroVisibility} {options}>
-          <div class="start-section">
-            <!-- TODO: fix stuttering with fade transition -->
-            {#if tableIntroIsVisible}
-              <h3 class="text-before-scroll" transition:fade>
+          {#if tableIntroIsVisible}
+            <div class="start-section">
+              <!-- TODO: fix stuttering with fade transition -->
+
+              <h3
+                class="text-before-scroll"
+                transition:fade={{ delay: 50, duration: 1000 }}
+              >
                 The table below, created by the Black Wealth Data Center (BWDC),
                 breaks down the Percent of Households Holding Asset and Debt
                 Types by Race/Ethnicity between 2007 and 2022. This data may
@@ -154,8 +158,8 @@
 
                 Take a look and see what else you might notice.
               </h3>
-            {/if}
-          </div>
+            </div>
+          {/if}
         </ObservedArticleText>
       </div>
 
@@ -225,10 +229,14 @@
 
       <div class="afterText">
         <ObservedArticleText callback={setTableOutroVisibility} {options}>
-          <div class="start-section">
-            <!-- TODO: fix stuttering with fade transition -->
-            {#if tableOutroIsVisible}
-              <h3 class="text-after-scroll" transition:fade>
+          {#if tableOutroIsVisible}
+            <div class="start-section">
+              <!-- TODO: fix stuttering with fade transition -->
+
+              <h3
+                class="text-after-scroll"
+                transition:fade={{ delay: 50, duration: 1000 }}
+              >
                 The existence of this wealth gap between racial/ethnic groups in
                 America has been <a
                   href="https://apps.urban.org/features/wealth-inequality-charts/"
@@ -239,8 +247,8 @@
                 exacerbate this issue, we will solely consider the potential
                 <em>impact</em> that this gap has had on Americans.
               </h3>
-            {/if}
-          </div>
+            </div>
+          {/if}
         </ObservedArticleText>
       </div>
 
@@ -270,12 +278,12 @@
     box-shadow: 16px 16px 12px #22223b;
   }
 
-  h3 {
+  /* h3 {
     font-family: "Cinzel";
     font-style: italic;
     font-size: 32px;
     text-align: center;
-  }
+  } */
 
   h3 {
     font-family: "Cinzel";
@@ -309,6 +317,10 @@
     margin-bottom: 20px;
     border: outset #9a8c98 10px;
     max-width: 90%;
+  }
+
+  img {
+    border: outset #9a8c98 8px;
   }
 
   a {

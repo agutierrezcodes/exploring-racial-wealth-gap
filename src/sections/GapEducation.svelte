@@ -80,7 +80,7 @@
             <div class="start-section">
               <!-- TODO: fix stuttering with fade transition -->
               {#if edIntroIsVisible}
-                <h3 class="text-before-scroll" transition:fade>
+                <h3 class="text-before-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
                   Wealth does not only influence finances. There is
                   <a
                     href="https://www.ihep.org/wp-content/uploads/2024/05/IHEP_RWG_FINAL.pdf"
@@ -135,7 +135,7 @@
             <div class="start-section">
               <!-- TODO: fix stuttering with fade transition -->
               {#if degreeIsVisible}
-                <h3 class="text-before-scroll" transition:fade>
+                <h3 class="text-before-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
                   Let us now look at rates of degree attainment in America.
                 </h3>
               {/if}
@@ -175,7 +175,7 @@
           <div class="start-section">
             <!-- TODO: fix stuttering with fade transition -->
             {#if incomeIsVisible}
-              <h3 class="text-before-scroll" transition:fade>
+              <h3 class="text-before-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
                 We will now consider the relationship between education level
                 and income. Examine the following graphs.
               </h3>
@@ -238,7 +238,7 @@
         <div class="start-section">
           <!-- TODO: fix stuttering with fade transition -->
           {#if outro1IsVisible}
-            <h3 class="text-after-scroll" transition:fade>
+            <h3 class="text-after-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
               The benefits of higher education all appear to translate into more
               potential generational wealth to pass on. However, did you notice
               a trend that stood out in these graphs?
@@ -253,7 +253,7 @@
         <div class="start-section">
           <!-- TODO: fix stuttering with fade transition -->
           {#if outro1IsVisible}
-            <h3 class="text-after-scroll" transition:fade>
+            <h3 class="text-after-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
               One observation of the presented information could be that white
               people in this data had higher advanced education rates and higher
               income levels (regardless of education level) than Black and
@@ -280,7 +280,7 @@
         <div class="start-section">
           <!-- TODO: fix stuttering with fade transition -->
           {#if outro1IsVisible}
-            <h3 class="text-after-scroll" transition:fade>
+            <h3 class="text-after-scroll" transition:fade={{ delay: 50, duration: 1000 }}>
               But, can we take this even further?
             </h3>
           {/if}
@@ -355,7 +355,7 @@
     text-align: center;
     padding: 50px;
     border-style: ridge;
-    border-color: #9a8c98;
+    border-color: #c9ada7;
     border-radius: 4px;
     border-width: 8px;
     background-color: #4a4e69;
