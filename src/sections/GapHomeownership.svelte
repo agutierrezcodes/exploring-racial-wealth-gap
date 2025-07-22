@@ -142,7 +142,7 @@
 
             <ArticleText>
               <p>
-                Another finding of this report is that between 1993 to 2019,
+                Another finding of this report is that between 1983 to 2019,
                 White Americans consistently had higher rates of homeownership
                 compared to Black Americans.
               </p>

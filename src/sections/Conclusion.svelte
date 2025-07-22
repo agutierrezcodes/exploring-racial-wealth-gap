@@ -10,9 +10,22 @@
 
   const subheader = "Conclusion";
   const subtitle = "Tying it all together";
+  let conclusion = $state(true);
 
   const options = {
-    threshold: [0.85, 0.95],
+    threshold: 0.01,
+  };
+
+  const removeConclusionCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+
+      if (entry.intersectionRatio >= 0.01) {
+        conclusion = true;
+      } else if (entry.intersectionRatio < 0.01) {
+        conclusion = false;
+      }
+    });
   };
 
   let homeIntroIsVisible = $state(true);
@@ -31,9 +44,13 @@
 
   <div class="conclusionSection">
     <div class="conclusionContentSection">
-      <h3 class="learning" transition:fade={{ delay: 50, duration: 1000 }}>
-        What can we learn from this?
-      </h3>
+      <ObservedArticleText callback={removeConclusionCallback} {options}>
+        {#if conclusion}
+          <h3 class="learning" transition:fade={{ delay: 50, duration: 1000 }}>
+            What can we learn from this?
+          </h3>
+        {/if}
+      </ObservedArticleText>
 
       <div class="notes">
         <div>
@@ -47,11 +64,11 @@
             Based on our findings, it appears that we have uncovered a vicious
             cycle that the racial wealth gap fuels: those with lower wealth are
             less likely to obtain a higher education. Additionally, lack of
-            higher education makes it less likely to advance to a higher income
-            level. Finally, people with lower income are less likely to own a
-            home (REMEMBER: homeownership is one of the primary ways in which
-            generational wealth is built). Therefore, their descendents will be
-            faced with many of the same problems they faced.
+            higher education renders a person less likely to advance to a higher
+            income level. Finally, people with lower income are less likely to
+            own a home (REMEMBER: homeownership is also one of the primary ways
+            in which generational wealth is built). This implies that a person's
+            descendents will be faced with many of the same problems they faced.
 
             <br />
             <br />
@@ -84,7 +101,6 @@
 <style>
   .conclusionSection {
     margin-top: 50rem;
-    margin-bottom: 50rem;
 
     box-shadow: 16px 16px 12px #22223b;
     background-color: #4a4e69;
