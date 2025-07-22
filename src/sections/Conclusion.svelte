@@ -59,22 +59,22 @@
             And the cycle continues, on and on.
           </h3>
         </div>
+      </div>
 
-        <div>
-          <h4>So, if it were up to you, what would you do?</h4>
+      <div class="action">
+        <h4>So, if it were up to you, what would you do?</h4>
 
-          <br />
+        <br />
 
-          <div class="button-section">
-            <a
-              href="https://inequality.org/article/ten-solutions-bridge-racial-wealth-divide/"
-              target="_blank"><button>Do <em>something</em></button></a
-            >
+        <div class="button-section">
+          <a
+            href="https://inequality.org/article/ten-solutions-bridge-racial-wealth-divide/"
+            target="_blank"><button>Do <em>something</em></button></a
+          >
 
-            <button id="backtoTop" onclick={scrollToTop}
-              >continue the cycle</button
-            >
-          </div>
+          <button id="backtoTop" onclick={scrollToTop}
+            >continue the cycle</button
+          >
         </div>
       </div>
     </div>
@@ -129,8 +129,6 @@
     font-weight: 600;
 
     padding-top: 50rem;
-
-    background-color: #c9ada7;
   }
 
   button {
@@ -138,20 +136,21 @@
     font-style: italic;
     font-size: 32px;
     font-weight: 600;
-    background-color: #c9ada7;
+    background-color: #9a8c98;
     color: #f2e9e4;
     margin: 1rem;
+
+    border: outset #4a4e69 4px;
   }
 
   .button-section {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-color: #c9ada7;
   }
 
-  .notes {
+  .notes,
+  .action {
     height: 100vh;
     background-color: #c9ada7;
     display: block;
@@ -161,6 +160,10 @@
     padding-top: 200px;
     margin-top: 100px; */
     padding: min(20vh, 20rem) 1rem;
+  }
+
+  .action {
+    padding-bottom: 50rem;
   }
 
   div.notes h3 {
