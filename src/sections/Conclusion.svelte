@@ -36,33 +36,47 @@
       </h3>
 
       <div class="notes">
-        <h3>
-          <!-- The racial wealth gap contributes to the gap in higher
+        <div>
+          <h3>
+            <!-- The racial wealth gap contributes to the gap in higher
                 educational achievement. Higher education increases income
                 level. Lower income inhibits the likelihood of homeownership and
                 as a result, decreases the possibility of passing down property
                 to descendants.  -->
 
-          It is appears from our findings that we have uncovered a vicious cycle
-          that the racial wealth gap creates: lower wealth makes it less likely
-          that people will obtain a higher education. A lack of higher education
-          makes it less likely that people will advance to a higher income
-          level. People with lower income are less likely to own a home
-          (REMEMBER: homeownership is one of the primary ways in which
-          generational wealth is built). Therefore, their descendents will be
-          faced with many of the same problems they faced.
+            Based on our findings, it appears that we have uncovered a vicious
+            cycle that the racial wealth gap fuels: those with lower wealth are
+            less likely to obtain a higher education. Additionally, lack of
+            higher education makes it less likely to advance to a higher income
+            level. Finally, people with lower income are less likely to own a
+            home (REMEMBER: homeownership is one of the primary ways in which
+            generational wealth is built). Therefore, their descendents will be
+            faced with many of the same problems they faced.
+
+            <br />
+            <br />
+
+            And the cycle continues, on and on.
+          </h3>
+        </div>
+
+        <div>
+          <h4>So, if it were up to you, what would you do?</h4>
 
           <br />
 
-          And the cycle continues.
-        </h3>
-      </div>
+          <div class="button-section">
+            <a
+              href="https://inequality.org/article/ten-solutions-bridge-racial-wealth-divide/"
+              target="_blank"><button>Do <em>something</em></button></a
+            >
 
-      <h4>
-        Do we want to try to <button>change this?</button> or simply
-        <button id="backtoTop" onclick={scrollToTop}>continue the cycle?</button
-        >
-      </h4>
+            <button id="backtoTop" onclick={scrollToTop}
+              >continue the cycle</button
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -95,6 +109,7 @@
     background-color: #c9ada7;
 
     padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   div.homeIntroSection h2,
@@ -105,7 +120,8 @@
     text-align: center;
   }
 
-  .learning {
+  .learning,
+  h4 {
     font-family: "Cinzel";
     font-style: italic;
     font-size: 32px;
@@ -113,18 +129,32 @@
     font-weight: 600;
 
     padding-top: 50rem;
+
+    background-color: #c9ada7;
   }
 
   button {
-    font-family: "Maitree";
-    font-style: normal;
-    font-weight: 300;
+    font-family: "Cinzel";
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 600;
+    background-color: #c9ada7;
+    color: #f2e9e4;
+    margin: 1rem;
+  }
+
+  .button-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #c9ada7;
   }
 
   .notes {
     height: 100vh;
     background-color: #c9ada7;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     /* padding: 30px;

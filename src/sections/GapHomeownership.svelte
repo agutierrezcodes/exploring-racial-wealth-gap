@@ -149,7 +149,7 @@
             </ArticleText>
 
             <a
-              href="https://www.census.gov/library/stories/2022/11/homeownership-by-young-households-below-pre-great-recession-levels.html"
+              href="https://www.ib.barclays/content/dam/barclaysmicrosites/ibpublic/documents/our-insights/HousingReform/barclays-impact-series-8-addressing-a-growing-divide.pdf "
               ><img
                 src="homeownership-race.png"
                 alt="Graph that shows Homeownership rate by Race, 1983-2019"
@@ -220,7 +220,7 @@
                 At this point, you might be asking, "Income level appears to
                 play a part in this gap in homeownership rates between different
                 races, but are there other factors that could explain it?" which
-                is a fantastic question! Next, we review other factors that
+                is a fantastic question! Next, we will review other factors that
                 might explain this difference.
               </p>
             </ArticleText>
@@ -316,12 +316,12 @@
           Unfortunately, there is a <a
             href="https://massbudget.org/2021/08/06/a-history-of-racist-federal-housing-policies/"
             target="_blank"
-            >long history of racist policies (including red-lining,
+            >long history of racist policies in America (including red-lining,
             descrimination in loan approval processes, exclusion from the 1944
-            GI Bill)</a
-          > in America that have made it harder for Black and Hispanic Americans
-          to purchase homes. These policies have contributed to the gap in homeownership
-          rates that we see today.
+            GI Bill, etc.)</a
+          > that have made it harder for Black and Hispanic Americans to purchase
+          homes. These policies have contributed to the gap in homeownership rates
+          that we see today.
         </h3>
       </div>
 

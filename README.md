@@ -1,26 +1,20 @@
-# KWK Scrollytelling template
+# KWK x BWDC Scrollytelling Challenge 2025
 
-This template is a starting point / example of how to create a scrollytelling piece using Svelte and Highcharts! 
+Project Name: IS IT TIME TO BRIDGE THE RACIAL WEALTH GAP?
 
-## Demo
-See a live demo of the page [here](https://jasminesamra.github.io/kwk-scrollytelling-template/)!
+Creator: Abigail Gutierrez
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
-
-## How to clone the repo
-On this repo's homepage in GitHub, click the `Use this template` button. Select the option to create a new repository. This will create a new repo under your GitHub account.
-
-Navigate to your new copy of this template in your GitHub profile. 
-
-Clone your new repo locally and `cd` into it. 
-
-Run `npm install` and then `npm run dev` to spin up the project locally. Then, start making changes! You can use this repo as a starting point for your own final project or simply as an example. 
+Date completed: 07/21/2025
 
 ## Credit
-Repo created using vite (`npm create vite@6`)
+Repo created using vite (`npm create vite@6`), template from jasminesamra/kwk-scrollytelling-template (https://github.com/jasminesamra/kwk-scrollytelling-template)
+
+Color pallete: https://coolors.co/palette/22223b-4a4e69-9a8c98-c9ada7-f2e9e4
 
 Credit for code that allows button to trigger smooth scroll to top: https://stackoverflow.com/questions/58213748/how-to-animate-scroll-to-top-javascript
 
 Code credit for advanced hemisphere border style: https://www.entheosweb.com/tutorials/css-borders-tutorial/ 
+
+Website icon image credit: https://www.flaticon.com/free-icon/salary_3135706?term=money&page=1&position=5&origin=search&related_id=3135706
+
+Arrow icon credit: https://www.flaticon.com/free-icon/down-arrow_2985149?term=down+arrow&page=1&position=21&origin=tag&related_id=2985149
