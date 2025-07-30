@@ -1,9 +1,9 @@
 {
-  "name": "kwk-scrollytelling-template",
+  "name": "exploring-racial-wealth-gap",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/agutierrezcodes/kwk-scrollytelling-template",
+  "homepage": "https://github.com/agutierrezcodes/exploring-racial-wealth-gap",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
