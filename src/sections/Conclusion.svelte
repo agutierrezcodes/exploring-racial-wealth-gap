@@ -1,11 +1,7 @@
 <script>
   import SubsectionCard from "../lib/SubsectionCard.svelte";
-  import * as Highcharts from "highcharts";
   import "highcharts/modules/exporting";
-  import { Chart } from "@highcharts/svelte";
-  import Scroller from "../lib/Scroller.svelte";
   import ObservedArticleText from "../lib/ObservedArticleText.svelte";
-  import ArticleText from "../lib/ArticleText.svelte";
   import { fade } from "svelte/transition";
 
   const subheader = "Conclusion";
